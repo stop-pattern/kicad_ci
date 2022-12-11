@@ -24,3 +24,19 @@ jobs:
       with:
         name: Automatic_outputs
         path: Generated
+
+  ERC:
+    runs-on: ubuntu-latest
+    container: setsoft/kicad_auto:latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run ERC
+      run: |
+        [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
+    - name: Retrieve results
+      uses: actions/upload-artifact@v1
+      with:
+        name: ERC_Output
+        path: Fabrication
