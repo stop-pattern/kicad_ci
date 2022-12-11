@@ -40,3 +40,23 @@ jobs:
       with:
         name: ERC_Output
         path: Fabrication
+
+  example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: INTI-CMNB/KiBot@v2
+      with:
+        # Required - kibot config file
+        config: config.kibot.yaml
+        # optional - prefix to output defined in config
+        dir: output
+        # optional - schematic file
+        schema: 'sample.sch'
+        # optional - PCB design file
+        board: 'sample.kicad_pcb'
+    - name: upload results
+      uses: actions/upload-artifact@v3
+      with:
+        name: output
+        path: output
