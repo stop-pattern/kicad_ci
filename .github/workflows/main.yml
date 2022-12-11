@@ -6,6 +6,7 @@ on:
       - '**.kicad_sch'
       - '**.kicad_pcb'
       - '**.kibot.yaml'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 jobs:
