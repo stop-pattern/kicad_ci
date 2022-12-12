@@ -10,37 +10,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
-
-    steps:
-    - name: Quick Start
-      run: |
-        kibot --quick-start
-
-    - name: Retrieve results
-      uses: actions/upload-artifact@v2
-      with:
-        name: Automatic_outputs
-        path: Generated
-
-  ERC:
-    runs-on: ubuntu-latest
-    container: setsoft/kicad_auto:latest
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Run ERC
-      run: |
-        [ -f *.sch ] && kiplot  -d Fabrication -s update_xml,run_drc -i
-    - name: Retrieve results
-      uses: actions/upload-artifact@v1
-      with:
-        name: ERC_Output
-        path: Fabrication
-
   example:
     runs-on: ubuntu-latest
     steps:
@@ -60,3 +29,7 @@ jobs:
       with:
         name: output
         path: output
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
