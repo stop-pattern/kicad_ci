@@ -13,10 +13,6 @@ jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
     - uses: actions/checkout@v2
     - uses: INTI-CMNB/KiBot@v2_k6
       with:
