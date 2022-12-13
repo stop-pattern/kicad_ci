@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 41,
+    "active_layer": 44,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_nets": [],
@@ -65,7 +65,7 @@
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "Arduino_Uno.kicad_prl",
+    "filename": "arduino_uno.kicad_prl",
     "version": 3
   },
   "project": {
