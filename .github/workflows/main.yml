@@ -12,6 +12,8 @@ on:
 jobs:
   print:
     runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad6_auto_full:latest
+
     steps:
     - uses: actions/checkout@v3
 
