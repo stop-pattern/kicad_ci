@@ -20,10 +20,6 @@ jobs:
         config: .config/print.kibot.yaml
         # optional - prefix to output defined in config
         dir: output
-        # optional - schematic file
-        schema: 'arduino_uno.kicad_sch'
-        # optional - PCB design file
-        board: 'arduino_uno.kicad_pcb'
     - name: upload results
       uses: actions/upload-artifact@v3
       with:
