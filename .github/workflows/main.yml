@@ -14,12 +14,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Quick Start
+      run: |
+        kibot --quick-start
+    - name: Retrieve results
+      uses: actions/upload-artifact@v2
+      with:
+        name: Automatic_outputs
+        path: Generated
+
     - uses: INTI-CMNB/KiBot@v2_k6
       with:
         # Required - kibot config file
         config: .config/print.kibot.yaml
         # optional - prefix to output defined in config
         dir: output
+
     - name: upload results
       uses: actions/upload-artifact@v3
       with:
