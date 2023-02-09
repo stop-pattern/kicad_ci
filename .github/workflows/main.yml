@@ -20,6 +20,7 @@ jobs:
     - name: Quick Start
       run: |
         kibot --quick-start
+        ls -al
     - name: Retrieve results
       uses: actions/upload-artifact@v2
       with:
